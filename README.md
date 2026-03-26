@@ -67,19 +67,4 @@ While it demonstrates core security concepts, it does **not implement real encry
 
 ---
 
-## 📸 Screenshots
 
-*Add screenshots here before submission for better presentation.*
-
----
-
-## 👨‍💻 Author
-
-**Larry**
-Cybersecurity Student | Flutter Developer | AppSec Enthusiast
-
----
-
-## 📄 License
-
-This project is for educational purposes.
