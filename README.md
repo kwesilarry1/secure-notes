@@ -57,7 +57,7 @@ While it demonstrates core security concepts, it does **not implement real encry
 
 ---
 
-## 🎯 Learning Objectives
+##  Learning Objectives
 
 * Understanding Flutter app structure
 * Implementing local data persistence
