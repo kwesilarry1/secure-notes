@@ -28,7 +28,7 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
     content = TextEditingController(text: widget.note.content);
   }
 
-  void saveEdit() async {
+ void saveEdit() async {
   List<Note> notes = await StorageService.getNotes();
 
   notes[widget.index] = Note(
@@ -39,12 +39,21 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
 
   await StorageService.saveNotes(notes);
 
-  Navigator.pop(context, true); // return success flag
-}
+  // show success message
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text("Note updated successfully ✅"),
+      duration: Duration(seconds: 2),
+    ),
+  );
 
+  Navigator.pop(context); // back to view
+  Navigator.pop(context); // back to home
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(title: Text("Edit Note")),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -67,10 +76,22 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: saveEdit,
-              child: Text("Save Changes and Refresh"),
-            )
+            SizedBox(
+  width: double.infinity,
+  child: ElevatedButton(
+    onPressed: saveEdit,
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(vertical: 14),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
+    child: Text(
+      "Save Changes and Refresh",
+      style: TextStyle(fontSize: 16),
+    ),
+  ),
+)
           ],
         ),
       ),

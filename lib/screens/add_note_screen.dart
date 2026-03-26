@@ -32,6 +32,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(title: Text("New Secure Note")),
       body: Padding(
         padding: const EdgeInsets.all(20),

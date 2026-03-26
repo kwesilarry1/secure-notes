@@ -80,15 +80,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: ListTile(
                         onTap: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => ViewNoteScreen(
-  note: n,
-  index: i,
-),
-      ),
-    );
+   Navigator.push(
+  context,
+  PageRouteBuilder(
+    pageBuilder: (_, __, ___) => ViewNoteScreen(
+      note: n,
+      index: i,
+    ),
+    transitionsBuilder: (_, animation, __, child) {
+      return SlideTransition(
+        position: Tween(
+          begin: const Offset(1, 0),
+          end: Offset.zero,
+        ).animate(animation),
+        child: child,
+      );
+    },
+  ),
+);
   },
                       title: Text(n.title,
                           style: TextStyle(fontWeight: FontWeight.bold)),
