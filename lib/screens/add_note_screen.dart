@@ -56,7 +56,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: save,
-              child: Text("Encrypt & Save 🔒"),
+              child: Text("Add Note"),
             )
           ],
         ),

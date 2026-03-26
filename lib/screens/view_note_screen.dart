@@ -1,43 +1,76 @@
 import 'package:flutter/material.dart';
 import '../models/note.dart';
+import 'edit_note_screen.dart';
 
 class ViewNoteScreen extends StatelessWidget {
   final Note note;
+  final int index;
 
-  const ViewNoteScreen({super.key, required this.note});
+  const ViewNoteScreen({
+    super.key,
+    required this.note,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("View Note"),
+        title: const Text("View Note"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () async {
+  final result = await Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) => EditNoteScreen(
+        note: note,
+        index: index,
+      ),
+    ),
+  );
+
+  if (result == true) {
+    Navigator.pop(context); // go back to home
+  }
+},
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // 📝 TITLE
             Text(
               note.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
 
+            const SizedBox(height: 10),
+
+            // 🕒 DATE
             Text(
               note.date,
-              style: TextStyle(color: Colors.grey, fontSize: 12),
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 12,
+              ),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
+            // 📖 CONTENT
             Expanded(
               child: SingleChildScrollView(
                 child: Text(
                   note.content,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
               ),
             ),
