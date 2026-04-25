@@ -22,17 +22,6 @@ All user data is stored locally, making it fast, offline-capable, and privacy-fr
 
 ---
 
-##  Tech Stack
-
-* **Flutter** (UI framework)
-* **Dart** (programming language)
-* **SharedPreferences** (local storage)
-* **intl** (date formatting)
-
-You can access the application here: https://s3cure-notes.netlify.app/
-
----
-
 ## 📂 Project Structure
 
 ```
@@ -51,21 +40,9 @@ lib/
 ---
 
 
+You can access the application here: https://s3cure-notes.netlify.app/
 
-##  Disclaimer
 
-This app simulates a secure environment using local storage and PIN authentication.
-While it demonstrates core security concepts, it does **not implement real encryption** and should not be used for storing highly sensitive data in production.
-
----
-
-##  Learning Objectives
-
-* Understanding Flutter app structure
-* Implementing local data persistence
-* Managing application state
-* Building authentication flow (PIN-based)
-* Designing clean and responsive UI
 
 ---
 
