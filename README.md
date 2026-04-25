@@ -29,6 +29,8 @@ All user data is stored locally, making it fast, offline-capable, and privacy-fr
 * **SharedPreferences** (local storage)
 * **intl** (date formatting)
 
+You can access the application here: https://s3cure-notes.netlify.app/
+
 ---
 
 ## 📂 Project Structure
